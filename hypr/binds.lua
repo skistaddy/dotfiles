@@ -1,7 +1,7 @@
 local super = "SUPER" -- Sets "Windows" key as main modifier
 local shift = super .. " + SHIFT"
 local terminal    = "kitty"
-local fileManager = "dolphin"
+local fileManager = "kitty yazi"
 local menu = "pkill rofi || rofi -show drun"
 local screenshot = "/home/skistaddy/scripts/screenshot.sh"
 
