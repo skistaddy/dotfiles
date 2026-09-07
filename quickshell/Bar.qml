@@ -9,13 +9,17 @@ PanelWindow {
 		anchors {
 			centerIn: parent
 		}
-		spacing: 20
+		spacing: 10
 		Widget { blob: Info.time }
 		Widget { blob: Info.internet }
-		Widget { 
-			blob: Info.volume 
-		}
+		//Widget { blob: Info.volume }
 		Widget { blob: Info.battery + "%" }
+		Widget { 
+			blob: "⏻"
+			chunk: () => {
+				Quickshell.execDetached(["reboot"])
+			}
+		}
 	}
 
 	exclusiveZone: 0
