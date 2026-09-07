@@ -11,9 +11,20 @@ PanelWindow {
 		}
 		spacing: 10
 		Widget { blob: Info.time }
-		Widget { blob: Info.internet }
+		Widget { 
+			blob: Info.internet
+			chunk: () => {
+				if(Info.internet === "󰖩"){
+					Quickshell.execDetached(["nmcli", "networking", "off"])
+				} else {
+					Quickshell.execDetached(["nmcli", "networking", "on"])
+				}
+			}
+		}
 		//Widget { blob: Info.volume }
-		Widget { blob: Info.battery + "%" }
+		Widget { 
+			blob: Info.battery + "%"
+		}
 		Widget { 
 			blob: "⏻"
 			chunk: () => {
