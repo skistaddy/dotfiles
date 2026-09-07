@@ -11,6 +11,10 @@ PanelWindow {
 		}
 		spacing: 20
 		Widget { blob: Info.time }
+		Widget { blob: Info.internet }
+		Widget { 
+			blob: Info.volume 
+		}
 		Widget { blob: Info.battery + "%" }
 	}
 

@@ -1,4 +1,5 @@
 vim.opt.termguicolors = false
+vim.opt.wrap = false
 vim.opt.number = true
 -- tabs
 vim.o.tabstop = 4

@@ -3,7 +3,7 @@ import QtQuick
 Text {
 	property string blob
 	font {
-		family: "JetBrainsMonoNL NFM"
+		family: "JetBrainsMono NFP"
 		bold: true
 	}
 	text: "[" + blob + "]"
