@@ -4,6 +4,10 @@ import Quickshell.Wayland
 import Quickshell.Hyprland
 
 PanelWindow {
+	required property var modelData
+	screen: modelData
+	readonly property HyprlandMonitor hyprMonitor: Hyprland.monitorFor(modelData)
+
 	id: panel
 	exclusiveZone: 0
 	color: "transparent"
@@ -11,11 +15,12 @@ PanelWindow {
 	aboveWindows: false
 
 	readonly property bool hasActiveWindows: {
-        return Hyprland.focusedMonitor.activeWorkspace.toplevels.values.length > 0;
+		if(Hyprland.focusedMonitor.name === hyprMonitor.name){
+		    return Hyprland.focusedMonitor.activeWorkspace.toplevels.values.length > 0;
+		} else {
+			return true
+		}
 	}
-
-	required property var modelData
-	screen: modelData
 
 	anchors {
 		top: true
