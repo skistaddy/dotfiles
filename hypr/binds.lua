@@ -5,6 +5,7 @@ local fileManager = "kitty yazi"
 local menu = "pkill rofi || rofi -show drun"
 local screenshot = "/home/skistaddy/scripts/screenshot.sh"
 
+hl.bind(super .. " + TAB", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(super .. " + P", hl.dsp.exec_cmd(screenshot))
 hl.bind(super .. " + F", hl.dsp.window.fullscreen())
 hl.bind(super .. " + T", hl.dsp.exec_cmd(terminal))
@@ -17,6 +18,58 @@ hl.bind(super .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(super .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(super .. " + up",    hl.dsp.focus({ direction = "up" }))
 hl.bind(super .. " + down",  hl.dsp.focus({ direction = "down" }))
+
+local function moveWindow(dir)
+    return function()
+        local win_before = hl.get_active_window()
+        if not win_before then return end
+
+        -- Extract the exact starting workspace ID safely
+        local ws_before = win_before.workspace and (win_before.workspace.id or win_before.workspace)
+
+        -- Define relative workspace offset targets
+        local workspace_jumps = {
+            left  = -1,
+            up    = -1,
+            right = 1,
+            down  = 1
+        }
+        local offset = workspace_jumps[dir]
+        if not offset then return end
+
+        -- Calculate the absolute destination numerical workspace ID up front
+        local target_ws = tostring(tonumber(ws_before) + offset)
+
+        -- 1. TRY TO MOVE NATIVELY: Instatiate a completely isolated, single-purpose object
+        hl.dispatch(hl.dsp.window.move({ direction = dir }))
+
+        -- 2. Grab the state immediately following the layout shift execution
+        local win_after = hl.get_active_window()
+        if not win_after then return end
+        
+        local ws_after = win_after.workspace and (win_after.workspace.id or win_after.workspace)
+
+        -- 3. EDGE TRIGGERED: Only cross workspaces if the layout blocked the move command
+        if tostring(ws_before) == tostring(ws_after) then
+            
+            -- Explicitly use 'movetoworkspacesilent' syntax natively or use a fresh table object.
+            -- This cuts out carried-over layout tags that cause the window-kicking/maximizing bugs.
+            hl.dispatch(hl.dsp.window.move({ 
+                workspace = target_ws, 
+                silent = true,
+                window = "address:" .. win_before.address
+            }))
+            
+            -- Focus your screen viewport straight onto the destination workspace index
+            hl.dispatch(hl.dsp.focus({ workspace = target_ws }))
+        end
+    end
+end
+
+hl.bind(shift .. " + left",  moveWindow("left"))
+hl.bind(shift .. " + right", moveWindow("right"))
+hl.bind(shift .. " + up",    moveWindow("up" ))
+hl.bind(shift .. " + down",  moveWindow("down"))
 
 hl.bind(super .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(super .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))

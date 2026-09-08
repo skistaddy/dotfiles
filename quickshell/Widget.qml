@@ -5,7 +5,6 @@ Button {
 	property string blob
 	property var chunk: null
 
-	background: Item {}
 
 	HoverHandler {
 		id: hoverHandler
@@ -17,8 +16,11 @@ Button {
 		bold: true
 	}
 	text: "[" + blob + "]"
+	width: contentItem.implicitWidth + leftPadding + rightPadding
+	height: 15
 
 	onClicked: {
 			if(chunk) chunk()
 	}
+	background: Item {}
 }

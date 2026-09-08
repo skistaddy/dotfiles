@@ -1,45 +1,69 @@
-import Quickshell
 import QtQuick
+import Quickshell
+import Quickshell.Wayland
+import Quickshell.Hyprland
 
 PanelWindow {
+	id: panel
+	exclusiveZone: 0
+	color: "transparent"
+	height: 20
+	aboveWindows: false
+
+	readonly property bool hasActiveWindows: {
+        return Hyprland.focusedMonitor.activeWorkspace.toplevels.values.length > 0;
+	}
+
 	required property var modelData
 	screen: modelData
-	
-	Row {
+
+	anchors {
+		top: true
+		bottom: !panel.hasActiveWindows
+		left: true
+		right: true
+	}
+
+	Rectangle {
+		color: "white"
+		id: bg
 		anchors {
 			centerIn: parent
 		}
-		spacing: 10
-		Widget { blob: Info.time }
-		Widget { 
-			blob: Info.internet
-			chunk: () => {
-				if(Info.internet === "󰖩"){
-					Quickshell.execDetached(["nmcli", "networking", "off"])
-				} else {
-					Quickshell.execDetached(["nmcli", "networking", "on"])
+
+		width: widgetRow.width
+		height: widgetRow.height
+
+		Row {
+			id: widgetRow
+			anchors {
+				centerIn: parent
+			}
+			spacing: 10
+			
+			Widget { blob: Info.time }
+			Widget { 
+				blob: Info.internet
+				chunk: () => {
+					if(Info.internet === "󰖩"){
+						Info.internet = "󰤭"
+						Quickshell.execDetached(["nmcli", "networking", "off"])
+					} else {
+						Info.internet = "󰖩"
+						Quickshell.execDetached(["nmcli", "networking", "on"])
+					}
+				}
+			}
+			//Widget { blob: Info.volume }
+			Widget { 
+				blob: Info.battery + "%"
+			}
+			Widget { 
+				blob: "⏻"
+				chunk: () => {
+					Quickshell.execDetached(["reboot"])
 				}
 			}
 		}
-		//Widget { blob: Info.volume }
-		Widget { 
-			blob: Info.battery + "%"
-		}
-		Widget { 
-			blob: "⏻"
-			chunk: () => {
-				Quickshell.execDetached(["reboot"])
-			}
-		}
-	}
-
-	exclusiveZone: 0
-	color: "#00000000"
-	height: 20
-	aboveWindows: true
-	anchors {
-		top: true
-		left: true
-		right: true
 	}
 }
