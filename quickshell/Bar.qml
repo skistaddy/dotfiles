@@ -15,11 +15,7 @@ PanelWindow {
 	aboveWindows: false
 
 	readonly property bool hasActiveWindows: {
-		if(Hyprland.focusedMonitor.name === hyprMonitor.name){
-		    return Hyprland.focusedMonitor.activeWorkspace.toplevels.values.length > 0;
-		} else {
-			return true
-		}
+		return hyprMonitor.activeWorkspace.toplevels.values.length > 0;
 	}
 
 	anchors {
