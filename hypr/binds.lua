@@ -2,10 +2,11 @@ local super = "SUPER" -- Sets "Windows" key as main modifier
 local shift = super .. " + SHIFT"
 local terminal    = "kitty"
 local fileManager = "kitty yazi"
-local menu = "pkill rofi || rofi -show drun"
+local menu = "pkill rofi || rofi -show run"
+local windowSwitcher = "rofi -show window"
 local screenshot = "/home/skistaddy/scripts/screenshot.sh"
 
-hl.bind(super .. " + TAB", hl.dsp.focus({ workspace = "e+1" }))
+--hl.bind(super .. " + TAB", hl.dsp.exec_cmd(windowSwitcher))
 hl.bind(super .. " + P", hl.dsp.exec_cmd(screenshot))
 hl.bind(super .. " + F", hl.dsp.window.fullscreen())
 hl.bind(super .. " + T", hl.dsp.exec_cmd(terminal))

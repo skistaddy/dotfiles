@@ -2,7 +2,7 @@ hl.monitor({ -- External
 	output = "HDMI-A-1",
 	mode = "preferred",
 	scale = 1,
-	position = "auto-center-up"
+	position = "auto-right"
 })
 
 hl.monitor({ -- Built-in
