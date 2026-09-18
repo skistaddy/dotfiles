@@ -55,7 +55,7 @@ PanelWindow {
 					}
 				}
 			}
-			//Widget { blob: Info.volume }
+			Widget { blob: Info.volume }
 			Widget { 
 				blob: Info.battery + "%"
 			}

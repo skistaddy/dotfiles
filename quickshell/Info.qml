@@ -47,10 +47,10 @@ Singleton {
 		running: true
 
 		stdout: StdioCollector {
+			// volume increments by 5% per press
 			onStreamFinished: {
-				let graphics = ["▁","▂","▃", "▄","▅","▆","▇", "█"]
-				let percent = Number(this.text.slice(8, 12).trim())
-				self.volume = graphics.slice(0, Math.floor(8 * percent)).join("")
+				let chars = Number(this.text.slice(8, 12).trim()) * 20
+				self.volume = "#".repeat(chars) + " ".repeat(20 - chars)
 			}
 		}
 	}
