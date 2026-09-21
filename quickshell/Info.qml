@@ -49,8 +49,19 @@ Singleton {
 		stdout: StdioCollector {
 			// volume increments by 5% per press
 			onStreamFinished: {
-				let chars = Number(this.text.slice(8, 12).trim()) * 20
-				self.volume = "#".repeat(chars) + " ".repeat(20 - chars)
+				let full = Number(this.text.slice(8, 12).trim()) * 20
+				let half = full % 2 > 0
+				let empty = 20 - full
+
+				if(half){
+					full--
+				}
+
+				full = full / 2
+				empty = empty / 2
+
+				self.volume = "󰋑".repeat(full) 
+					+  (half ? "󰛞" : "") + "󱢠".repeat(empty)
 			}
 		}
 	}
