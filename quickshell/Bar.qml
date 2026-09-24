@@ -42,6 +42,7 @@ PanelWindow {
 			}
 			spacing: 10
 			
+			Widget { blob: Info.date }
 			Widget { blob: Info.time }
 			Widget { 
 				blob: Info.internet

@@ -61,7 +61,8 @@ Singleton {
 				empty = empty / 2
 
 				self.volume = "󰋑".repeat(full) 
-					+  (half ? "󰛞" : "") + "󱢠".repeat(empty)
+					+  (half ? "󰛞" : "") 
+					+ "󱢠".repeat(empty)
 			}
 		}
 	}
@@ -79,6 +80,17 @@ Singleton {
 		}
 	}
 
+	property string date
+	Process {
+		id: dateProc
+		command: ["date", "+%A %D"] // only works without quotes around the args
+		running: true
+
+		stdout: StdioCollector {
+			onStreamFinished: self.date = this.text.trim()
+		}
+	}
+
 	Timer {
 		interval: 1000
 		running: true
@@ -88,6 +100,7 @@ Singleton {
 			batteryProc.running = true
 			internetProc.running = true
 			volumeProc.running = true
+			dateProc.running = true
 		}
 	}
 }
