@@ -1,12 +1,16 @@
-local super = "ALT" -- Sets "Windows" key as main modifier
+local super = "SUPER" -- Sets "Windows" key as main modifier
 local shift = super .. " + SHIFT"
 local terminal    = "kitty"
 local fileManager = "kitty yazi"
-local menu = "pkill rofi || rofi -show run"
-local windowSwitcher = "rofi -show window"
+local menu = "pkill rofi || rofi -show drun"
+local windowSwitcher = "pkill rofi || rofi -show window"
 local screenshot = "/home/skistaddy/scripts/screenshot.sh"
+local lock = "mpvpaper -o 'no-audio loop panscan=1.0' --layer overlay ALL /home/skistaddy/wallpapers/videos/caretaker.mp4 & hyprlock; pkill mpvpaper"
 
---hl.bind(super .. " + TAB", hl.dsp.exec_cmd(windowSwitcher))
+hl.bind(super .. " + TAB", hl.dsp.exec_cmd(windowSwitcher))
+hl.bind(super .. " + C", hl.dsp.send_shortcut({ mods = "CTRL", key = "INSERT" }))
+hl.bind(super .. " + V", hl.dsp.send_shortcut({ mods = "SHIFT", key = "INSERT" }))
+hl.bind(super .. " + L", hl.dsp.exec_cmd(lock))
 hl.bind(super .. " + P", hl.dsp.exec_cmd(screenshot))
 hl.bind(super .. " + F", hl.dsp.window.fullscreen())
 hl.bind(super .. " + T", hl.dsp.exec_cmd(terminal))

@@ -31,6 +31,7 @@ hl.config({
     },
 
     misc = {
+		session_lock_xray = true,
         force_default_wallpaper = -1, 
         disable_hyprland_logo   = true,
 		disable_splash_rendering = true
@@ -69,5 +70,6 @@ hl.config({
     scrolling = {
         fullscreen_on_one_column = true,
 		focus_fit_method = 1,
+		wrap_focus = false
     },
 })
