@@ -5,7 +5,7 @@ local fileManager = "kitty yazi"
 local menu = "pkill rofi || rofi -show drun"
 local windowSwitcher = "pkill rofi || rofi -show window"
 local screenshot = "/home/skistaddy/scripts/screenshot.sh"
-local lock = "mpvpaper -o 'no-audio loop panscan=1.0' --layer overlay ALL /home/skistaddy/wallpapers/videos/caretaker.mp4 & hyprlock; pkill mpvpaper"
+local lock = "mpvpaper -o 'no-audio loop panscan=1.0' ALL /home/skistaddy/wallpapers/videos/caretaker.mp4 & hyprlock"
 
 hl.bind(super .. " + TAB", hl.dsp.exec_cmd(windowSwitcher))
 hl.bind(super .. " + C", hl.dsp.send_shortcut({ mods = "CTRL", key = "INSERT" }))

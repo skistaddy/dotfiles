@@ -8,4 +8,4 @@ require("windows")
 hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
-
+--hl.env("AQ_DRM_DEVICES", "/dev/dri/by-path/pci-0000:00:02.0-card")
