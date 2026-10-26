@@ -13,3 +13,9 @@ pipewire sets these files to a sample rate of 64 which is low so they should bot
 /sys/class/rtc/rtc0/max_user_freq
 /proc/sys/dev/hpet/max-user-freq
 ```
+
+# stow
+this repository is symlinked into `~/.config` by GNU's stow by running
+```
+stow -t ~/.config .
+```

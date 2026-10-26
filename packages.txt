@@ -5,8 +5,11 @@ blender
 brightnessctl
 btop
 btrfs-progs
+bun
 cage
 cava
+docker
+docker-compose
 dunst
 efibootmgr
 elinks
@@ -58,6 +61,7 @@ slurp
 smartmontools
 sof-firmware
 steam
+stow
 sudo
 terminus-font
 torbrowser-launcher
