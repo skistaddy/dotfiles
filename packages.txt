@@ -8,13 +8,16 @@ btrfs-progs
 bun
 cage
 cava
+diskonaut
 docker
 docker-compose
 dunst
 efibootmgr
 elinks
+fastfetch
 fd
 gamemode
+gimp
 git
 gparted
 grim

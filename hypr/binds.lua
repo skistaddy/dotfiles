@@ -17,7 +17,7 @@ hl.bind(super .. " + T", hl.dsp.exec_cmd(terminal))
 hl.bind(super .. " + Q", hl.dsp.window.close())
 hl.bind(super .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(super .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(super .. " + " .. super .. "_L", hl.dsp.exec_cmd(menu))
+hl.bind(super .. " + " .. super .. "_L", hl.dsp.exec_cmd(menu), { release = true })
 
 hl.bind(super .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(super .. " + right", hl.dsp.focus({ direction = "right" }))
