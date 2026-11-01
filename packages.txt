@@ -8,6 +8,7 @@ btrfs-progs
 bun
 cage
 cava
+ddgr
 diskonaut
 docker
 docker-compose
@@ -46,6 +47,7 @@ network-manager-applet
 networkmanager
 noto-fonts-emoji
 nvidia-open
+ollama
 openvpn
 pipewire
 pipewire-alsa
@@ -53,6 +55,8 @@ pipewire-jack
 pipewire-pulse
 playerctl
 polkit-kde-agent
+python-pip
+python-pipx
 qt5-wayland
 qt6-wayland
 quickshell
