@@ -1,2 +1,11 @@
 cava/shaders
 cava/themes
+
+# Ignore everything inside the .ssh directory by default
+**/.ssh/*
+
+# Allow public keys
+!**/.ssh/*.pub
+
+# Allow the SSH config file
+!**/.ssh/config

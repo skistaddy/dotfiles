@@ -8,6 +8,7 @@ btrfs-progs
 bun
 cage
 cava
+cloudflared
 ddgr
 diskonaut
 docker
