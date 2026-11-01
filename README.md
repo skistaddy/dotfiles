@@ -15,7 +15,7 @@ pipewire sets these files to a sample rate of 64 which is low so they should bot
 ```
 
 # stow
-this repository is symlinked into `~/.config` by GNU's stow by running
+this repository is symlinked into `~/.config` and `~` by GNU's stow by running
 ```
-stow -t ~/.config .
+./stow.sh
 ```
