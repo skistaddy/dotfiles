@@ -29,6 +29,7 @@ hwinfo
 hypridle
 hyprland
 hyprlock
+imagemagick
 intel-ucode
 iwd
 kitty
@@ -40,6 +41,8 @@ libpulse
 libva-nvidia-driver
 linux
 linux-firmware
+luarocks
+man-db
 mangohud
 mkinitcpio
 nano
@@ -64,6 +67,7 @@ quickshell
 rofi
 rog-control-center
 rtkit
+rust
 sddm
 slurp
 smartmontools

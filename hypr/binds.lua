@@ -19,6 +19,14 @@ hl.bind(super .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&
 hl.bind(super .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(super .. " + " .. super .. "_L", hl.dsp.exec_cmd(menu), { release = true })
 
+-- Switch workspaces with super + [0-9]
+-- Move active window to a workspace with shift + [0-9]
+for i = 1, 10 do
+    local key = i % 10 -- 10 maps to key 0
+    hl.bind(super .. " + " .. key, hl.dsp.focus({ workspace = i}))
+    hl.bind(shift .. " + " .. key, hl.dsp.window.move({ workspace = i }))
+end
+
 hl.bind(super .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(super .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(super .. " + up",    hl.dsp.focus({ direction = "up" }))
