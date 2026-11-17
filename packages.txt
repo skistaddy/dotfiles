@@ -9,6 +9,7 @@ bun
 cage
 cava
 cloudflared
+cuda
 ddgr
 diskonaut
 docker
@@ -51,7 +52,6 @@ network-manager-applet
 networkmanager
 noto-fonts-emoji
 nvidia-open
-ollama
 openvpn
 pipewire
 pipewire-alsa
@@ -67,7 +67,7 @@ quickshell
 rofi
 rog-control-center
 rtkit
-rust
+rustup
 sddm
 slurp
 smartmontools

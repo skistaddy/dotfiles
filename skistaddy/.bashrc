@@ -21,3 +21,5 @@ export PATH="/home/skistaddy/.pi/agent/bin:$PATH"
 
 # Created by `pipx` on 2026-11-01 15:58:21
 export PATH="$PATH:/home/skistaddy/.local/bin"
+
+export PATH="/opt/cuda/bin:$PATH"

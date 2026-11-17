@@ -1,0 +1,5 @@
+[mgr]
+prepend_keymap = [
+  { on = ";", run = "noop", desc = "Disable shell prompt" },
+  { on = ":", run = "noop", desc = "Disable blocking shell prompt" },
+]

@@ -1,6 +1,6 @@
 hl.window_rule({
 	match = {
-		title = "(?i).*(youtube|picture[ -]?in[ -]?picture).*"
+		title = "(?i).*(live[ ]?caption|youtube|picture[ -]?in[ -]?picture).*"
 	},
     float = true,
 	opacity = "1.0 override"
