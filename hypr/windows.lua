@@ -1,8 +1,17 @@
+-- float for PiP
+hl.window_rule({
+	match = {
+		title = "(?i).*(live[ ]?caption|picture[ -]?in[ -]?picture).*"
+	},
+    float = true,
+	opacity = "1.0 override"
+})
+
+-- full opacity for videos
 hl.window_rule({
 	match = {
 		title = "(?i).*(live[ ]?caption|youtube|picture[ -]?in[ -]?picture).*"
 	},
-    float = true,
 	opacity = "1.0 override"
 })
 
